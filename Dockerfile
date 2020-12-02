@@ -34,6 +34,7 @@ RUN apt-get update && \
       tk-dev \
       xz-utils \
       zlib1g-dev \
+      software-properties-common \
       && \
     rm -rf /var/lib/apt/lists/*
 
@@ -45,6 +46,12 @@ RUN curl https://pyenv.run | bash && \
 ENV PYTHON_VERSION=3.9.0
 RUN $HOME/.pyenv/bin/pyenv install $PYTHON_VERSION && \
     $HOME/.pyenv/bin/pyenv global $PYTHON_VERSION
+
+# Ruby
+RUN apt-add-repository -y ppa:rael-gc/rvm && \
+    apt-get update && \
+    apt-get install -y rvm && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY ./conf/tmux.conf /root/.tmux.conf
 
