@@ -12,3 +12,8 @@ RUN apt-add-repository -y ppa:rael-gc/rvm && \
     apt-get update && \
     apt-get install -y rvm && \
     rm -rf /var/lib/apt/lists/*
+ENV RUBY_VERSION=2.7.2
+RUN rvm install RUBY_VERSION && \
+    rvm alias create default RUBY_VERSION
+
+CMD ["/bin/bash", "--login"]

@@ -31,3 +31,5 @@ RUN curl https://pyenv.run | bash && \
 ENV PYTHON_VERSION=3.9.0
 RUN $HOME/.pyenv/bin/pyenv install $PYTHON_VERSION && \
     $HOME/.pyenv/bin/pyenv global $PYTHON_VERSION
+
+CMD ["/bin/bash", "--login"]
