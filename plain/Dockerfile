@@ -15,8 +15,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY ./conf/tmux.conf /root/.tmux.conf
+COPY ./scripts/init.sh /tmp/init.sh
 
 RUN mkdir /work
 WORKDIR /work
 
+ENTRYPOINT ["/tmp/init.sh"]
 CMD ["/bin/bash"]
