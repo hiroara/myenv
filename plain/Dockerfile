@@ -7,12 +7,17 @@ RUN apt-get update && \
     apt-get install -y \
       curl \
       git-core \
+      language-pack-en \
+      language-pack-ja \
       rsync \
       tmux \
       vim \
       wget \
       && \
     rm -rf /var/lib/apt/lists/*
+
+RUN update-locale LANG=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 COPY ./conf/tmux.conf /root/.tmux.conf
 COPY ./scripts/init.sh /tmp/init.sh

@@ -18,4 +18,7 @@ ENV RUBY_VERSION=2.7.2
 RUN /usr/share/rvm/bin/rvm install $RUBY_VERSION && \
     /usr/share/rvm/bin/rvm alias create default $RUBY_VERSION
 
+RUN gem install bundler
+RUN bundle config --global silence_root_warning 1
+
 CMD ["/bin/bash", "--login"]
