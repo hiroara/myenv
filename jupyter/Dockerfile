@@ -15,6 +15,7 @@ RUN conda install -y \
       matplotlib \
       numpy \
       pandas \
+      tqdm \
       && \
     conda clean --all
 
