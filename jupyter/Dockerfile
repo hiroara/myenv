@@ -21,8 +21,8 @@ RUN conda install -y \
       ipywidgets \
       nodejs \
       && \
-    conda clean --all
+    conda clean --all -y
 
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter labextension install -y @jupyter-widgets/jupyterlab-manager
 
 CMD ["jupyter", "lab", "--allow-root", "--no-browser", "--ip=0.0.0.0"]
