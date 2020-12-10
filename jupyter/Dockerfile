@@ -12,11 +12,13 @@ RUN conda install -c conda-forge -y jupyterlab && \
 EXPOSE 8888
 
 RUN conda install -y \
-      ipywidgets \
       matplotlib \
       numpy \
       pandas \
       tqdm \
+      && \
+    conda install -c conda-forge -y \
+      ipywidgets \
       && \
     conda clean --all
 
