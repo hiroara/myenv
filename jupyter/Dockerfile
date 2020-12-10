@@ -17,9 +17,11 @@ RUN conda install -y \
       pandas \
       tqdm \
       && \
+    conda install -c conda-forge -y --repodata-fn=repodata.json \
+      nodejs \
+      && \
     conda install -c conda-forge -y \
       ipywidgets \
-      nodejs \
       && \
     conda clean --all -y
 
