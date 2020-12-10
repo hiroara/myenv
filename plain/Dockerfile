@@ -19,8 +19,8 @@ RUN apt-get update && \
 RUN update-locale LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
-RUN mkdir -p -m 0700 /root/.ssh && \
-    ssh-keyscan github.com >> /root/.ssh/known_hosts
+RUN mkdir -p -m 0700 $HOME/.ssh && \
+    ssh-keyscan github.com >> $HOME/.ssh/known_hosts
 
 COPY ./conf/tmux.conf /root/.tmux.conf
 COPY ./conf/ssh_config /root/.ssh/config
