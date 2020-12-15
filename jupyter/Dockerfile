@@ -25,6 +25,15 @@ RUN conda install -y \
       && \
     conda clean --all -y
 
+# Tools
+RUN apt-get update && \
+    apt-get install -y \
+      fonts-noto-cjk \
+      && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY ./jupyter/conf/matplotlibrc /root/.config/matplotlib/matplotlibrc
+
 RUN jupyter labextension install -y @jupyter-widgets/jupyterlab-manager
 
 CMD ["jupyter", "lab", "--allow-root", "--no-browser", "--ip=0.0.0.0"]
