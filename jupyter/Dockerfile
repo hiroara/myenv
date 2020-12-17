@@ -15,6 +15,7 @@ RUN conda install -y \
       matplotlib \
       numpy \
       pandas \
+      scikit-learn \
       tqdm \
       && \
     conda install -c conda-forge -y --repodata-fn=repodata.json \
