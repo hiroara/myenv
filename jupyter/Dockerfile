@@ -23,6 +23,7 @@ RUN conda install -y \
       && \
     conda install -c conda-forge -y \
       ipywidgets \
+      tensorflow-probability \
       && \
     conda clean --all -y
 
